@@ -37,6 +37,8 @@ The scatterplot shows that temperature generally increased over the two weeks, w
 ## Problem 2
 
 ```{r create df}
+set.seed(10)
+
 df = tibble(
   numberic_vec = rnorm(10),
   logical_vec = rnorm(10) > 0,

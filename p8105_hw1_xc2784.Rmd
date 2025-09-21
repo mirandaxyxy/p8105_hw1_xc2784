@@ -46,3 +46,22 @@ df = tibble(
 
 df
 ```
+
+```{r mean}
+mean(pull(df,numberic_vec))   # works
+mean(pull(df,logical_vec))   # works
+mean(pull(df,char_vec))      # error
+mean(pull(df,factor_vec))    # error
+```
+
+```{r convert_numeric, results='hide', warning=FALSE}
+as.numeric(pull(df,logical_vec))  # TRUE becomes 1, FALSE becomes 0
+as.numeric(pull(df,char_vec))     # returns NA with warning
+as.numeric(pull(df,factor_vec))   # assigns integers
+```
+
+When logical variables are converted to numeric, TRUE becomes 1, FALSE becomes 0 because TRUE is coerced to 1 and FALSE to 0. This explains why taking the mean of a logical vector gives the proportion of TRUE values.
+
+When character variables are converted to numeric, R returns NAs with a warning because characters cannot be meaningfully turned into numbers, which explains why their mean cannot be computed.
+
+When factor variables are converted to numeric, R returns the integers assigned to each level. Since those numbers don’t really mean anything, averaging them would not represent a meaningful statistic, which explains why mean() does not work for factor variables.

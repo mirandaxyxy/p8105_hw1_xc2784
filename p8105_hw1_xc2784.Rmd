@@ -34,3 +34,15 @@ ggsave("scatter_plot.pdf", height = 4, width = 6)
 
 The scatterplot shows that temperature generally increased over the two weeks, with some fluctuations.Humidity tends to be higher at lower temperatures and lower at higher temperatures.
 
+## Problem 2
+
+```{r create df}
+df = tibble(
+  numberic_vec = rnorm(10),
+  logical_vec = rnorm(10) > 0,
+  char_vec    = letters[1:10], 
+  factor_vec  = factor(rep(c("Level1","Level2","Level3"), length.out = 10)) 
+)
+
+df
+```

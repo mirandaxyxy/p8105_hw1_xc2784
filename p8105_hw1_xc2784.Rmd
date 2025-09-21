@@ -1,5 +1,5 @@
 ---
 title: "p8105_hw1_xc2784"
-output: html_document
+output: github_document
 ---
 
